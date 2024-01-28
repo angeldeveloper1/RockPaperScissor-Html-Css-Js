@@ -1,17 +1,21 @@
+/* Estilos generales de la aplicación */
 body {
   background-color: rgb(25,25,25);
   color: white;
   font-family: Arial;
 }
+/* Estilos para el título de la aplicación */
 
 .title{
   font-size: 30px;
   font-weight: bold;
 }
+/* Estilos para los iconos de las opciones de juego */
 
 .move-icon{
   height: 50px;
 }
+/* Estilos para los botones de las opciones de juego */
 
 .move-button{
   background-color: transparent;
@@ -22,16 +26,19 @@ body {
   margin-right: 10px;
   cursor: pointer;
 }
+/* Estilos para el resultado del juego */
 
 .result{
   font-size: 25px;
   font-weight: bold;
   margin-top: 50px;
 }
+/* Estilos para la puntuación */
 
 .score{
   margin-top: 60px;
 }
+/* Estilos para los botones de resetear la puntuación y activar/desactivar el modo de juego automático */
 
 .reset-score-button,
 .auto-play-button {

@@ -1,13 +1,16 @@
+// Recupera la puntuación del almacenamiento local o establece valores predeterminados
 let score = JSON.parse(localStorage.getItem('score'))
       ||{
           wins:0,
           losses:0,
           ties:0
         }
+        // Inicializa y actualiza la puntuación en la interfaz de usuario
         updateScoreElement();
 
 
-        /*
+
+        /* Esto solo es un comentario
       if (!score){
         score={
           wins:0,
@@ -23,6 +26,8 @@ let score = JSON.parse(localStorage.getItem('score'))
       //const autoPlay = () =>{
 
       //};
+
+      // Función para activar/desactivar el modo de juego automático
       function autoPlay(){
         if (!isAutoPlaying) {
             intervalId = setInterval(() => {
@@ -35,7 +40,7 @@ let score = JSON.parse(localStorage.getItem('score'))
           isAutoPlaying = false;
         }
       }
-
+      // Event listeners para los botones de las opciones de juego
       document.querySelector('.js-rock-button')
         .addEventListener('click', () => {
           playGame('rock');
@@ -50,7 +55,7 @@ let score = JSON.parse(localStorage.getItem('score'))
         .addEventListener('click', () => {
           playGame('scissors');
         });
-
+      // Event listener para las teclas de atajo ('r', 'p', 's')
       document.body.addEventListener('keydown', (event) =>{
         if (event.key === 'r'){
           playGame('rock');
@@ -60,12 +65,12 @@ let score = JSON.parse(localStorage.getItem('score'))
           playGame('scissors');
         }
       })
-
+      // Función principal del juego
       function playGame(playerMove){
         const computerMove = pickComputerMove();
 
         let result='';
-
+        // If para determinar el resultado del juego
         if(playerMove === 'scissors'){
           if (computerMove==='rock'){
             result='You lose.';
@@ -94,7 +99,7 @@ let score = JSON.parse(localStorage.getItem('score'))
           }
         }
 
-
+        // Actualiza la puntuación
         if (result=== 'You win.'){
           score.wins += 1;
         } else if (result === 'You lose.'){
@@ -102,9 +107,10 @@ let score = JSON.parse(localStorage.getItem('score'))
         } else if (result === 'Tie.'){
           score.ties +=1;
         }
-
+        // Guarda la puntuación en el almacenamiento local
         localStorage.setItem('score', JSON.stringify(score));
 
+        // Muestra el resultado en la interfaz de usuario
         document.querySelector('.js-result')
           .innerHTML = `${result}`;
 
@@ -113,6 +119,8 @@ let score = JSON.parse(localStorage.getItem('score'))
           <img src="images/${computerMove}-emoji.png" class="move-icon">
       Computer`;
 
+        
+      // Actualiza la puntuación en la interfaz de usuario
         updateScoreElement();
         }
 
@@ -122,7 +130,7 @@ let score = JSON.parse(localStorage.getItem('score'))
         }
 
 
-
+      // Funcion para saber el movimiento de la computadora
       function pickComputerMove(){
           const randomNumber=Math.random();
 
